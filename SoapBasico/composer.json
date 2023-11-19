@@ -1,0 +1,18 @@
+{
+    "name": "sergi/unidad6",
+    "type": "proyect",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sergi\\Unidad6\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sergi",
+            "email": "sergio.ume@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

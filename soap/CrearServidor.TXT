@@ -1,0 +1,30 @@
+Pasos para crear un servidor soap sin WSDL
+
+Indicamos la ruta donde se encuentra
+$uri = "http://localhost/mi_servicio_soap";
+$parametros = ['uri' => $uri];
+
+hacemos instancia indicando en null que no hay un wsdl
+$server = new SoapServer(NULL, $parametros);
+
+le diecimos donde estan las funciones
+$server->setClass('MiServicio');
+
+lo ponemos a la escucha
+$server->handle();
+
+
+
+clase que contiene funciones y metodos 
+en nuestro caso  $server->setClass('Clases\Operaciones'); que esta dentro de 'src'
+accedemos gracias al autoload y el namespaces Clases.
+
+class MiServicio {
+    public function metodo1($parametro1, $parametro2) {
+        // Lógica del método
+    }
+
+    public function metodo2($parametro) {
+        // Lógica del método
+    }
+}

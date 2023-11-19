@@ -1,0 +1,41 @@
+Pasos para crear un cliente soap
+
+Ubicacion y espacio de nombres
+$url = 'http://localhost/tu_servicio_soap';
+$uri = 'http://localhost/tu_servicio_soap';
+
+crear el cliente
+try {
+    $cliente = new SoapClient(null, ['location' => $url, 'uri' => $uri]);
+} catch (SoapFault $f) {
+    die("Error en cliente SOAP:" . $f->getMessage());
+}
+
+llamar a las operaciones del MiServicio
+$resultado = $cliente->__soapCall('nombre_de_la_operacion', ['parametro' => $valor]);
+
+manejar los parametros de resultados
+$precio = ($resultado == null) ? "No existe el producto" : $resultado;
+
+
+imprimir el resultado
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado del Servicio SOAP</title>
+</head>
+<body>
+    <h1>Resultado del Servicio SOAP</h1>
+
+    <?php
+    // Tu código PHP para llamar al servicio SOAP y obtener el resultado
+    $precio = ($resultado == null) ? "No existe el producto" : $resultado;
+    ?>
+
+    <p>El precio del producto es: <?php echo $precio; ?></p>
+
+</body>
+</html>
+

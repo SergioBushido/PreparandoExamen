@@ -1,0 +1,25 @@
+{
+    "name": "sergi/tienda-blade",
+    "type": "project",
+    "require": {
+        "philo/laravel-blade": "dev-master"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sergi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sergi",
+            "email": "sergio.ume@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+    }
+}
