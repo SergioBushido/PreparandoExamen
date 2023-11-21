@@ -1,0 +1,20 @@
+{
+    "name": "sergi/blade",
+    "type": "proyect",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sergi\\Blade\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sergi",
+            "email": "sergio.ume@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/view": "^11.0@dev"
+    }
+}

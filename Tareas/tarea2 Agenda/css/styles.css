@@ -1,0 +1,50 @@
+body{
+    background: #FA8072;
+ }
+ h1{
+     text-align: center;
+ }
+ .campo {
+     width: 40%;
+     margin: auto;
+ }
+ 
+ spam{
+     margin-left: 80px;;
+ }
+ 
+ legend{
+     font-weight: bold;
+ }
+ 
+ p{
+     color: #000ADD;
+     font-size: larger;
+ }
+ 
+ [type='submit'] {
+     font-size: medium;
+     color: blue;
+     padding: 5px 10px;}
+ 
+ [type='reset'] {
+     font-size: medium;
+     color: green;
+     padding: 5px 10px;}
+ 
+  [type='text'] {
+         
+      margin-left: 50px;
+      
+       width: 200px;
+       vertical-align: middle;
+ }  
+     
+ .error {
+     color: white;
+     font-weight: bold;
+     
+ }
+ 
+ 
+ 

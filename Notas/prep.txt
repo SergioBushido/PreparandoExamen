@@ -1,0 +1,16 @@
+**Es una conexion a una base de datos llamada peaxamen que tiene 2 tablas usuarios y productos 
+el usuario es carlos con pass 123 con hash sha256
+utilizo el sistema mas basico todo metido en 3 archivos. 
+-Una conexion 
+-un login
+la conexion es PDO con clases, recuerda usar
+$stmt = $conexion->obtenerConexion()->prepare($sql);
+Primero se obtiene la conexio y luego prepare
+
+-mostrar la pagina una vez te has logeado
+
+**El archivo insertaUsuarioHash se comprueba un usuario de la base de datos que ha sido creado con password_hash
+**passhash.php crea un usuario con hash256 si se crea de esta manera password_hash no lo identifica en el login
+
+-loginssVerify.php logea a carlos 123 con  password_hash
+-loginHash256.php logea a sergio 123 con contraseña hash 256

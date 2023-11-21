@@ -1,0 +1,8 @@
+ *sergio 123
+ 
+ El collation de la base de datos utf8_general_ci hace que las comparaciones serán case-insensitive,
+  lo que significa que "sergio" y "Sergio" serán considerados iguales.
+
+  *utf8_bin hace que si las distinga
+
+  **En la plantilla de actualizar tengo una validacion js
