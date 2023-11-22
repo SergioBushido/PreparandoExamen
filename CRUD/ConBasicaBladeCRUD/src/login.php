@@ -18,7 +18,7 @@ class Login extends Conexion
 
 
 public function log($nombre, $pass) {
-    $conexion = new Conexion();
+    //$conexion = new Conexion();
     $sql = "SELECT * FROM usuarios WHERE nombre = :nombre AND pass = :pass";
    // $stmt = $conexion->crearConexion()->prepare($sql);
     $stmt = $this->crearConexion()->prepare($sql);//prepare es un metodo de PDO
