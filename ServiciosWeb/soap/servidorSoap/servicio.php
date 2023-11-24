@@ -1,7 +1,7 @@
 <?php
 require '../vendor/autoload.php';
 
-$uri = "http://localhost/tarea6.1/servidorSoap";
+$uri = "http://localhost/examenTareas/ServiciosWeb/soap/servidorSoap";
 $parametros = ['uri' => $uri];
 
 try {

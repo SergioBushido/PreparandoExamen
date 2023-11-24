@@ -1,7 +1,7 @@
 <?php
 
 require_once 'conexion.php';
-
+//user1 pass:123
 if (!isset($_SERVER['PHP_AUTH_USER'])) {
     // Enviamos un encabezado de autenticación básica y un código de estado 401 Unauthorized.
     header("WWW-Authenticate: Basic realm='Contenido restringido'");

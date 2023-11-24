@@ -48,6 +48,8 @@
                     <td>
                         <input type="text"  value="<?php echo e($item->categoria); ?>"readonly>
                     </td>
+                                    <!-- ... si no es foranea esto se borra... -->
+
                     <td>
                         <select name="categoria[]" class="form-control"  required>
                             <?php $__currentLoopData = $categorias; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $familia): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

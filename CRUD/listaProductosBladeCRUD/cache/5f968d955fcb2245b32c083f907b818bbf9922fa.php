@@ -24,7 +24,6 @@
             <input type="number" name="pvp" class="form-control" required>
         </div>
         <!-- Dropdown para seleccionar la familia esto es clave para claves foraneas-->
-       <!-- Dropdown para seleccionar la familia -->
 <div class="form-group">
     <label for="familia">Familia:</label>
     <select name="familia" class="form-control" required>

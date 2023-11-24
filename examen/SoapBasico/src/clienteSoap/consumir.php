@@ -5,7 +5,7 @@ $uri = 'http://localhost/examenTareas/examen/SoapBasico/src/ServidorSoap';
 $url = $uri.'/Servidor.php';
 
 $paramSaludo = ['texto' => 'Sergio'];
-$param = ['a' => 51, 'b' => 29];
+$param = ['a' => 2, 'b' => 2];
 
 try {
     $cliente = new \SoapClient(null, ['location' => $url, 'uri' => $uri, 'trace' => true]);

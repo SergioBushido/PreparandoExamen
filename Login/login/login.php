@@ -1,5 +1,5 @@
 <?php
-
+//usuario1 pass:123
 require_once 'conexion.php';
 
 if (!isset($_SERVER['PHP_AUTH_USER'])) {

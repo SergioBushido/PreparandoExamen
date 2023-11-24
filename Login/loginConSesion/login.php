@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!--gestor pass/ admin secreto-->
 <head>
     <title>Formulario con Bootstrap</title>
     <meta charset="UTF-8">

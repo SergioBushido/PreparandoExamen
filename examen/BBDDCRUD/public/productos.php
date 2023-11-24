@@ -91,7 +91,7 @@ if(isset($_GET['mostrar'])){
     echo $blade->view()->make('vistaMostrar', compact('titulo', 'encabezado', 'producto','categorias', 'result'))->render();
     exit;
 }
-
+//esto no esta implementado aun
 if(isset($_GET['modificar'])){
     $id=$_GET['modificar'];
     $titulo = 'MOdifica';

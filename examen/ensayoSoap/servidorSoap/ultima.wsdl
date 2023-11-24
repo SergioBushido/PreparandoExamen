@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://localhost/examenTareas/examen/ensayoSoap/servidorSoap/servicioW.php"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             name="UltimaInformatica"
+             targetNamespace="http://localhost/examenTareas/examen/ensayoSoap/servidorSoap/servicioW.php">
+
+    <types>
+        <xsd:schema targetNamespace="http://localhost/examenTareas/examen/ensayoSoap/servidorSoap/servicioW.php">
+            <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding"/>
+            <xsd:element name="getMaterialInformaticoRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="id" type="xsd:int"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getMaterialInformaticoResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="material" type="tns:MaterialInformatico"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:complexType name="MaterialInformatico">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:int"/>
+                    <xsd:element name="nombre" type="xsd:string"/>
+                    <xsd:element name="descripcion" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </types>
+
+    <message name="getMaterialInformaticoRequest">
+        <part name="parameters" element="tns:getMaterialInformaticoRequest"/>
+    </message>
+    <message name="getMaterialInformaticoResponse">
+        <part name="parameters" element="tns:getMaterialInformaticoResponse"/>
+    </message>
+
+    <portType name="UltimaInformaticaPortType">
+        <operation name="getMaterialInformatico">
+            <input message="tns:getMaterialInformaticoRequest"/>
+            <output message="tns:getMaterialInformaticoResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="UltimaInformaticaBinding" type="tns:UltimaInformaticaPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getMaterialInformatico">
+            <soap:operation soapAction="http://localhost/examenTareas/examen/ensayoSoap/servidorSoap/servicioW.php#getMaterialInformatico"/>
+            <input>
+                <soap:body use="literal" namespace="http://localhost/examenTareas/examen/ensayoSoap/servidorSoap/servicioW.php"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://localhost/examenTareas/examen/ensayoSoap/servidorSoap/servicioW.php"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="UltimaInformaticaService">
+        <port name="UltimaInformaticaPort" binding="tns:UltimaInformaticaBinding">
+            <soap:address location="http://localhost/examenTareas/examen/ensayoSoap/servidorSoap/servicioW.php"/>
+        </port>
+    </service>
+</definitions>

@@ -13,7 +13,7 @@ try {
 }
 
 // Parámetros para las operaciones
-$codP = 8;
+$codP = 10;
 $codT = 3;
 $codF = 'EBOOK';
 
