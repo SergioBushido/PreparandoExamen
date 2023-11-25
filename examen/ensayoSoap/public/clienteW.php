@@ -1,5 +1,7 @@
 <?php
-$url = 'http://localhost/examenTareas/ensayoSoap/servidorSoap/';
+//esto es lo quw especifica que se utilice el wsdl (tiene que terminar en barra)
+//todo lo demas sera igual
+$url = 'http://localhost/examenTareas/examen/ensayoSoap/servidorSoap/servicio.wsdl';
 
 try {
     $cliente = new SoapClient($url); // Se utiliza el archivo WSDL

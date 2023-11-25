@@ -1,23 +1,20 @@
-<!-- Heredamos de la plantilla1 ubicada en la carpeta 'plantillas' -->
 @extends('plantillas.plantilla1')
-
-<!-- Definimos la sección 'titulo' y mostramos el valor de la variable $titulo -->
 @section('titulo')
     {{$titulo}}
 @endsection
-
-<!-- Definimos la sección 'encabezado' y mostramos el valor de la variable $encabezado -->
 @section('encabezado')
     {{$encabezado}}
 @endsection
-
-<!-- Definimos la sección 'contenido' -->
 @section('contenido')
     <a href="inicio.php" class="btn btn-secondary mb-3">Volver</a>
 
     <form action="actualizar.php" method="POST" class="needs-validation" novalidate>
+        <!--actualiza tiene la logica que muestra el prodicto por id-->
         @if($actualiza)
             <input type="hidden" name="id" value="{{$actualiza->id}}">
+
+<!--5.1 venimos de operaciones a agregar o quitar los campos del formulario para que coincidan 
+con la tabla que estamos atacando de aqui nos vamos a actualizar.php -->
 
             <div class="form-group">
                 <label for="nom">Nombre:</label>
@@ -25,17 +22,23 @@
                 <div class="invalid-feedback">Campo obligatorio</div>
             </div>
 
+
+
             <div class="form-group">
                 <label for="des">Descripción:</label>
                 <textarea name="des" class="form-control" required>{{$actualiza->descripciónc}}</textarea>
                 <div class="invalid-feedback">Campo obligatorio</div>
             </div>
 
+
+
             <div class="form-group">
                 <label for="pvp">PVP:</label>
                 <input type="number" name="pvp" class="form-control" value="{{$actualiza->pvpc}}" required>
                 <div class="invalid-feedback">Campo obligatorio</div>
             </div>
+
+
 
             <button type="submit" class="btn btn-primary" name="actualizar">Actualizar</button>
         @endif

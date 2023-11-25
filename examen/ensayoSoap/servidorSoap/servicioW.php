@@ -3,7 +3,7 @@
 require '../vendor/autoload.php';
 
 // Definimos la URL del archivo WSDL que utilizará el servidor.
-$url = "http://localhost/examenTareas/examen/ensayoSoap/servidorSoap/ultima.wsdl"; 
+$url = "http://localhost/examenTareas/examen/ensayoSoap/servidorSoap/servicio.wsdl"; 
 
 try {
     // Creamos un objeto SoapServer utilizando la URL del archivo WSDL.

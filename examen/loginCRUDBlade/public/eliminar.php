@@ -1,7 +1,6 @@
 <?php
 require '../vendor/autoload.php';
-use Sergi\Productos;
-use Sergi\Conexion;
+use Sergi\Operaciones;
 use Philo\Blade\Blade;
 session_start();
 
@@ -11,17 +10,17 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-$productos = new Productos();
-//Necesario para ver los producotos
-$datosProductos = $productos->obtener();
+$mostrarDatos = new Operaciones();
+$datos = $mostrarDatos->mostrar();
 
 
 //Capturamos el id que nos viene con el href de eliminar
 if(isset($_GET['id'])){
     $id=$_GET['id'];
-    $eliminar = $productos->eliminar($id);
+    $eliminar = $mostrarDatos->eliminar($id);
     if ($eliminar) {
-        header("Location: inicio.php");
+        $mensaje="Dato eliminado";
+        header("Location: inicio.php?mensaje=$mensaje");
         exit();
     }
 }
@@ -36,4 +35,4 @@ $titulo = 'insertar';
 $encabezado = "Hola " . $_SESSION['usuario'];
 
 
-echo $blade->view()->make('vmostrar', compact('titulo', 'encabezado', 'datosProductos', 'eliminar'))->render();
+echo $blade->view()->make('vmostrar', compact('titulo', 'encabezado', 'datos', 'eliminar'))->render();

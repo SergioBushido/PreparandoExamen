@@ -1,27 +1,26 @@
 <!-- Heredamos de la plantilla1 ubicada en la carpeta 'plantillas' -->
 @extends('plantillas.plantilla1')
-
-<!-- Definimos la sección 'titulo' y mostramos el valor de la variable $titulo -->
 @section('titulo')
 {{$titulo}}
 @endsection
-
-<!-- Definimos la sección 'encabezado' y mostramos el valor de la variable $encabezado -->
 @section('encabezado')
 {{$encabezado}}
 @endsection
-<!-- Definimos la sección 'contenido' -->
 @section('contenido')
 <div class="container mt-4">
-    <!-- Agrega una tabla para mostrar los datos con estilos de Bootstrap -->
     <div class="text-right mb-3">
         <a href="cerrar.php" class="btn btn-danger">Cerrar sesión</a>
     </div>
-   
+    <?php
+$mensaje = isset($_GET['mensaje']) ? $_GET['mensaje'] : '';
+?>
+    <h1>{{ $mensaje }}</h1>
 
     <table class="table table-bordered">
         <thead>
             <tr>
+                <!--1.2 adaptamos el formulario a nuestra tabla
+            y nos vamos operaciones.php a por el metodo eliminar(2) -->
                 <th>Nombre</th>
                 <th>Descripción</th>
                 <th>Precio</th>
@@ -29,15 +28,22 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($datosProductos as $producto)
+                            <!--1.2 adaptamos el formulario a nuestra tabla-->
+
+            @foreach ($datos as $info)
+
             <tr>
-                <td>{{$producto->nombrec}}</td>
-                <td>{{$producto->descripciónc}}</td>
-                <td>{{$producto->pvpc}}</td>
-                <td><a href="eliminar.php?id={{$producto->id}}" class="btn btn-danger">Eliminar</a></td>
-                <td><a href="actualizar.php?id={{$producto->id}}" class="btn btn-primary">Actualizar</a></td>
-                <td><a href="mostrar.php?id={{$producto->id}}" class="btn btn-success">Mostrar</a></td>
+                <td>{{$info->nombrec}}</td>
+                <td>{{$info->descripciónc}}</td>
+                <td>{{$info->pvpc}}</td>
+
+
+
+                <td><a href="eliminar.php?id={{$info->id}}" class="btn btn-danger">Eliminar</a></td>
+                <td><a href="actualizar.php?id={{$info->id}}" class="btn btn-primary">Actualizar</a></td>
+                <td><a href="mostrar.php?id={{$info->id}}" class="btn btn-success">Mostrar</a></td>
             </tr>
+
             @endforeach
         </tbody>
     </table>

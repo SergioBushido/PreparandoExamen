@@ -1,36 +1,39 @@
 <!-- Heredamos de la plantilla1 ubicada en la carpeta 'plantillas' -->
 @extends('plantillas.plantilla1')
-
-<!-- Definimos la sección 'titulo' y mostramos el valor de la variable $titulo -->
 @section('titulo')
     {{$titulo}}
 @endsection
-
-<!-- Definimos la sección 'encabezado' y mostramos el valor de la variable $encabezado -->
 @section('encabezado')
     {{$encabezado}}
 @endsection
-<!-- Definimos la sección 'contenido' -->
 @section('contenido')
     <div class="container mt-4">
-      
-
+<!--3.1 adaptamos la tabla a lo que queramos mostrar-->
         <table class="table table-bordered">
             <thead>
                 <tr>
+
+                <!--3.1-->
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Precio</th>
                     <th colspan="3" style="text-align: center;">Acciones</th>
+
+
                 </tr>
             </thead>
             <tbody>
             <tr>
-            <td>{{$datosProductos->nombrec}}</td>
-            <td>{{$datosProductos->descripciónc}}</td>
-            <td>{{$datosProductos->pvpc}}</td>
-            <td><a href="eliminar.php?id={{$datosProductos->id}}" class="btn btn-danger">Eliminar</a></td>
-            <td><a href="actualizar.php?id={{$datosProductos->id}}" class="btn btn-primary">Actualizar</a></td>
+
+            <!--3.1-->
+            <td>{{$datos->nombrec}}</td>
+            <td>{{$datos->descripciónc}}</td>
+            <td>{{$datos->pvpc}}</td>
+
+
+
+            <td><a href="eliminar.php?id={{$datos->id}}" class="btn btn-danger">Eliminar</a></td>
+            <td><a href="actualizar.php?id={{$datos->id}}" class="btn btn-primary">Actualizar</a></td>
         </tr>
             </tbody>
         </table>

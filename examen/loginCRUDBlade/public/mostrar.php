@@ -1,6 +1,6 @@
 <?php
 require '../vendor/autoload.php';
-use Sergi\Productos;
+use Sergi\Operaciones;
 use Philo\Blade\Blade;
 session_start();
 
@@ -15,8 +15,8 @@ $id=$_GET['id'];
 
 }
 
-$productos = new Productos();
-$datosProductos = $productos->obtenerPorId($id);
+$mostrarDatos = new Operaciones();
+$datos = $mostrarDatos->obtenerPorId($id);
 
 $views = '../views';
 $cache = '../cache';
@@ -26,6 +26,6 @@ $titulo = 'Mostar';
 $encabezado = "Hola " . $_SESSION['usuario'];
 
 
-echo $blade->view()->make('vmostrar', compact('titulo', 'encabezado', 'datosProductos'))->render();
+echo $blade->view()->make('vmostrar', compact('titulo', 'encabezado', 'datos'))->render();
 ?>
 

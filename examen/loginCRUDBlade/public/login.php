@@ -1,5 +1,5 @@
 <?php
-session_start(); // Inicia la sesión (asegúrate de hacerlo al inicio de tu script)
+session_start(); // Iniciamos  la sesión 
 
 require '../vendor/autoload.php';
 use Sergi\Login;
@@ -15,15 +15,24 @@ $encabezado = 'LOGIN';
 
 
 if (isset($_POST['nombre']) && isset($_POST['pass'])) {
+    //Verificamos el login (si tiene hash)
     $nombre = $_POST['nombre'];
     $pass = $_POST['pass'];
-    //si no usamos hash comentamos lo de abajo y en lugar de $hash en parametro ponemos $pass
     $hash=hash('sha256', $pass);
     $login=new Login();
     $login->log($nombre, $hash);
 
+     
+     //Verificamos el login SIN HASH
+    /* $nombre = $_POST['nombre'];
+     $pass = $_POST['pass'];
+     $login=new Login();
+     $login->log($nombre, $pass);*/
+
 
 }
+
+
 echo $blade->view()->make('vlogin', compact('titulo', 'encabezado'))->render();
 ?>
 

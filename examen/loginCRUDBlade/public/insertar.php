@@ -1,7 +1,6 @@
 <?php
 require '../vendor/autoload.php';
-use Sergi\Productos;
-use Sergi\Conexion;
+use Sergi\Operaciones;
 use Philo\Blade\Blade;
 session_start();
 
@@ -11,16 +10,22 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-$productos = new Productos();
+$mostrarDatos = new Operaciones();
 
+//4.2
+//si en la vinsertar pulsan insertar en el formulario capturamos sus valores
+//nos vamos a update punto 5 operaciones
+if (isset($_POST['insertar'])){
 
+    //4.2 agregamos todos los valores del formulario
 
-if (isset($_POST['enviar'])){
     $nombre=$_POST['nom'];
     $descripcion=$_POST['des'];
     $pvp=$_POST['pvp'];
-    $datosProductos = $productos->insertar( $nombre,  $descripcion,  $pvp );
-    echo $blade->view()->make('vinsertar', compact('titulo', 'encabezado', 'datosProductos'))->render();
+
+                                    //aqui tb !!!!!
+    $datos = $mostrarDatos->insertar( $nombre,  $descripcion,  $pvp );
+    
 }
 
 

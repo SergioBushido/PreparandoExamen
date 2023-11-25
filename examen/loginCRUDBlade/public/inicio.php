@@ -1,6 +1,6 @@
 <?php
 require '../vendor/autoload.php';
-use Sergi\Productos;
+use Sergi\Operaciones;
 use Philo\Blade\Blade;
 session_start();
 
@@ -10,8 +10,8 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-$productos = new Productos();
-$datosProductos = $productos->obtener();
+$mostrarDatos = new Operaciones();
+$datos = $mostrarDatos->mostrar();
 
 $views = '../views';
 $cache = '../cache';
@@ -21,7 +21,7 @@ $titulo = 'Mostar';
 $encabezado = "Hola " . $_SESSION['usuario'];
 
 
-echo $blade->view()->make('vinicio', compact('titulo', 'encabezado', 'datosProductos'))->render();
+echo $blade->view()->make('vinicio', compact('titulo', 'encabezado', 'datos'))->render();
 ?>
 
 

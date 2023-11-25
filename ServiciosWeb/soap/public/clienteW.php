@@ -7,7 +7,7 @@ try {
     die("Error en cliente SOAP:" . $f->getMessage());
 }
 
-$codP = 2;
+$codP = 8;
 $codT = 1;
 $codF = 'MEMFLA';
 

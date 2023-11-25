@@ -1,11 +1,10 @@
 <?php
 require '../vendor/autoload.php';
-use Sergi\Productos;
-use Sergi\Conexion;
+use Sergi\Operaciones;
 use Philo\Blade\Blade;
 session_start();
 
-$productos = new Productos();
+$mostrarDatos = new Operaciones();
 
 // Verificar si no hay sesión, redirigir a la página de login
 if (!isset($_SESSION['usuario'])) {
@@ -17,15 +16,15 @@ if (!isset($_SESSION['usuario'])) {
 // para mostrar el producto a actualizar
 $actualiza = null;
 
-//pulsamos actualizar desde la vista mostrar
+//si pulsamos actualizar desde la vista mostrar, con el id de lo que queramos ver, nos manda a vactualizar
+//con el formulario para actualizar
 if (isset($_GET['id'])) {
+
     $id = $_GET['id'];
-    $actualiza = $productos->obtenerPorId($id);
+    $actualiza = $mostrarDatos->obtenerPorId($id);
     $views = '../views';
     $cache = '../cache';
-    $blade = new Blade($views,
-        $cache
-    );
+    $blade = new Blade($views, $cache );
 
     $titulo = 'actualizar';
     $encabezado = "Hola " . $_SESSION['usuario'] . " actualiza el producto";
@@ -35,26 +34,28 @@ if (isset($_GET['id'])) {
 
 // Capturamos el id del producto para actualizar en la base de datos
 
-
-//pulasamos actualizar desde el formualario en la vista actulacizar
+//5.2
+//venimos de vactualizar.blade
+//capturamos los valores del formulario y asignamos variables
+//si pulsamos actualizar desde el formualario en la vista actulacizar
 if(isset($_POST['actualizar'])){
+
     $id = $_POST['id'];
     $nom = $_POST['nom'];
     $des = $_POST['des'];
     $pvp = $_POST['pvp'];
     
     // Intentar actualizar el producto y verificar si fue exitoso
-    $actualizar = $productos->actualizar($id, $nom, $des, $pvp);
+                                            //agregamos las variables
+    $actualizar = $mostrarDatos->actualizar($id, $nom, $des, $pvp);
+
+    
 
     if ($actualizar) {
-        $actualizarMensaje = "Producto actualizado con éxito";
-        // Puedes cargar nuevamente el producto actualizado si es necesario
-        $actualiza = $productos->obtenerPorId($id);
-    } else {
-        $actualizarMensaje = "Error al actualizar el producto";
+        $mensaje = "Dato actualizado";
+        header("Location: inicio.php?mensaje=$mensaje");
+        exit();
     }
-    echo $blade->view()->make('vinicio', compact('titulo', 'encabezado'))->render();
-
 }
 
 

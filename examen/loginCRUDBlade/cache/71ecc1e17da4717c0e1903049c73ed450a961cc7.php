@@ -1,25 +1,21 @@
-<!-- Heredamos de la plantilla1 ubicada en la carpeta 'plantillas' -->
-
-
-<!-- Definimos la sección 'titulo' y mostramos el valor de la variable $titulo -->
 <?php $__env->startSection('titulo'); ?>
     <?php echo e($titulo); ?>
 
 <?php $__env->stopSection(); ?>
-
-<!-- Definimos la sección 'encabezado' y mostramos el valor de la variable $encabezado -->
 <?php $__env->startSection('encabezado'); ?>
     <?php echo e($encabezado); ?>
 
 <?php $__env->stopSection(); ?>
-
-<!-- Definimos la sección 'contenido' -->
 <?php $__env->startSection('contenido'); ?>
     <a href="inicio.php" class="btn btn-secondary mb-3">Volver</a>
 
     <form action="actualizar.php" method="POST" class="needs-validation" novalidate>
+        <!--actualiza tiene la logica que muestra el prodicto por id-->
         <?php if($actualiza): ?>
             <input type="hidden" name="id" value="<?php echo e($actualiza->id); ?>">
+
+<!--5.1 venimos de operaciones a agregar o quitar los campos del formulario para que coincidan 
+con la tabla que estamos atacando de aqui nos vamos a actualizar.php -->
 
             <div class="form-group">
                 <label for="nom">Nombre:</label>
@@ -27,17 +23,23 @@
                 <div class="invalid-feedback">Campo obligatorio</div>
             </div>
 
+
+
             <div class="form-group">
                 <label for="des">Descripción:</label>
                 <textarea name="des" class="form-control" required><?php echo e($actualiza->descripciónc); ?></textarea>
                 <div class="invalid-feedback">Campo obligatorio</div>
             </div>
 
+
+
             <div class="form-group">
                 <label for="pvp">PVP:</label>
                 <input type="number" name="pvp" class="form-control" value="<?php echo e($actualiza->pvpc); ?>" required>
                 <div class="invalid-feedback">Campo obligatorio</div>
             </div>
+
+
 
             <button type="submit" class="btn btn-primary" name="actualizar">Actualizar</button>
         <?php endif; ?>
